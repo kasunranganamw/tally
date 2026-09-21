@@ -55,6 +55,27 @@
   a { color: inherit; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
+  /* Top announcement bar — first thing on the page, above the nav */
+  .announce { background: var(--ink); color: var(--on-accent); }
+  .announce-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 11px 24px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12.5px;
+    letter-spacing: .02em;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .announce-inner a {
+    color: var(--gold);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .announce-inner a:hover { text-decoration: underline; }
+
   /* Nav */
   nav.top {
     display: flex;
@@ -70,7 +91,7 @@
     font-size: 20px;
     color: var(--ink);
   }
-  .nav-links { display: flex; gap: 28px; }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
   .nav-links a {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 12.5px;
@@ -80,6 +101,18 @@
     color: var(--ink-soft);
   }
   .nav-links a:hover { color: var(--ink); }
+  .nav-links a.btn {
+    padding: 9px 18px;
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  /* .nav-links a's own color rule above otherwise wins on specificity
+     (element+class beats a lone class) and makes the button's text the
+     same translucent tone as the paper it's sitting on. */
+  .nav-links a.btn-primary, .nav-links a.btn-primary:hover {
+    color: var(--on-accent);
+  }
 
   /* Hero */
   .hero {
@@ -253,6 +286,13 @@
 </style>
 </head>
 <body>
+<div class="announce">
+  <div class="wrap announce-inner">
+    <span>&#127881; Tally is live on the App Store</span>
+    <a href="https://apps.apple.com/app/id6808044470">Download free &#8594;</a>
+  </div>
+</div>
+
 <div class="wrap">
   <nav class="top">
     <a class="mark" href="/tally/">
@@ -262,6 +302,7 @@
     <div class="nav-links">
       <a href="/tally/privacy/">Privacy</a>
       <a href="/tally/support/">Support</a>
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6808044470">Download</a>
     </div>
   </nav>
 </div>
@@ -269,11 +310,11 @@
 <div class="wrap">
   <section class="hero">
     <div>
-      <span class="badge">Coming soon to the App Store</span>
+      <span class="badge">Live on the App Store</span>
       <h1>Good habits,<br>real rewards.</h1>
       <p class="lead">Tally is a warm, simple way for families to track good moments, earn stars, and turn them into rewards kids actually want.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/tally/support/">Get notified</a>
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6808044470">Download on the App Store</a>
         <a class="btn btn-ghost" href="#features">See how it works</a>
       </div>
     </div>
